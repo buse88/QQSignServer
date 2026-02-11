@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  signserver:
+    image: sign-server  # 使用你导入的镜像名和标签
+    container_name: signserver
+    ports:
+      - "8080:8080"                   # 宿主机端口:容器端口
+    restart: unless-stopped
+    # 如果你的镜像需要读取外部配置文件，取消下面的注释并确保文件存在
+    # volumes:
+    #   - ./sign.config.toml:/app/sign.config.toml
